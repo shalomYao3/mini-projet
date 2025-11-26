@@ -6,4 +6,4 @@ class Task(SQLModel, table=True):
     title: str
     description: Optional[str] = None
     completed: bool = False
-    owner_id: int  # ID de l'utilisateur connecté
+    owner_id: int  

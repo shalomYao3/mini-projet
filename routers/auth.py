@@ -16,7 +16,7 @@ def register(user: UserCreate, session:Session = Depends(get_session)):
     if existing_user:
         raise HTTPException(status_code=400, detail="Username already taken")
 
-    hashed_pw = Hash.bcrypt(user.password)
+    hashed_pw = Hash.hash(user.password)
     new_user = User(username=user.username, hashed_password=hashed_pw)
     session.add(new_user)
     session.commit()

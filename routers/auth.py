@@ -25,9 +25,6 @@ def register(user: UserCreate, session:Session = Depends(get_session)):
     session.refresh(new_user)
     return new_user
 
-@router.get("/register", response_class=HTMLResponse)
-def register_form(request: Request):
-    return templates.TemplateResponse("register.html", {"request": request})
 
 @router.post("/login")
 def login(user: UserLogin,
@@ -40,6 +37,4 @@ def login(user: UserLogin,
     token = create_access_token({"sub": db_user.username})
     return {"access_token": token, "token_type": "bearer"}
 
-@router.get("/login", response_class=HTMLResponse)
-def login_form(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+

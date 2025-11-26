@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlmodel import select
+from sqlmodel import Session, select
 from database import session
 from database.session import get_session
 from models.user import User
@@ -10,7 +10,7 @@ from security.jwt_handler import create_access_token
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
 @router.post("/register", response_model=UserRead)
-def register(user: UserCreate, session: session = Depends(get_session)):
+def register(user: UserCreate, session:Session = Depends(get_session)):
     statement = select(User).where(User.username == user.username)
     existing_user = session.exec(statement).first()
     if existing_user:
@@ -24,7 +24,7 @@ def register(user: UserCreate, session: session = Depends(get_session)):
     return new_user
 
 @router.post("/login")
-def login(user: UserLogin, session=Depends(get_session)):
+def login(user: UserLogin, session:Session=Depends(get_session)):
     statement = select(User).where(User.username == user.username)
     db_user = session.exec(statement).first()
     if not db_user or not Hash.verify(db_user.hashed_password, user.password):

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block content %}
+  <h2>Bienvenue {{ user.username }}</h2>
+  <p>Voici votre espace personnel.</p>
+  <ul>
+    <li><a href="/tasks">Mes tâches</a></li>
+    <li><a href="/groups">Mes groupes</a></li>
+  </ul>
+{% endblock %}

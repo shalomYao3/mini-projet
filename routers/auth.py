@@ -1,4 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi.responses import HTMLResponse
+from utils.templates import templates
 from sqlmodel import Session, select
 from database import session
 from database.session import get_session
@@ -23,8 +25,13 @@ def register(user: UserCreate, session:Session = Depends(get_session)):
     session.refresh(new_user)
     return new_user
 
+@router.get("/register", response_class=HTMLResponse)
+def register_form(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+
 @router.post("/login")
-def login(user: UserLogin, session:Session=Depends(get_session)):
+def login(user: UserLogin,
+           session:Session=Depends(get_session)):
     statement = select(User).where(User.username == user.username)
     db_user = session.exec(statement).first()
     if not db_user or not Hash.verify(db_user.hashed_password, user.password):
@@ -32,3 +39,7 @@ def login(user: UserLogin, session:Session=Depends(get_session)):
 
     token = create_access_token({"sub": db_user.username})
     return {"access_token": token, "token_type": "bearer"}
+
+@router.get("/login", response_class=HTMLResponse)
+def login_form(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})

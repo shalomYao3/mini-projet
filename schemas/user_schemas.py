@@ -4,8 +4,8 @@ class UserRead(BaseModel):
     id: int
     username: str
 
-class config:
-    orm_mode = True
+    class config:
+        orm_mode = True
 
 class UserLogin(BaseModel):
     username: str

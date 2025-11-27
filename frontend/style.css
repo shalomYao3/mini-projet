@@ -1,69 +1,87 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    background: #f9f9f9;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  form {
-    margin: 1rem 0;
-  }
-  
-  input, button {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-  }
-  
-  button {
-    background: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
-  
-/* --- NAVBAR --- */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1e3a8a; /* bleu foncé élégant */
-    padding: 0.8rem 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .navbar a {
-    color: #f9fafb; /* blanc cassé */
-    text-decoration: none;
-    margin: 0 0.8rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar a:hover {
-    color: #93c5fd; /* bleu clair au survol */
-  }
-  
-  #logout-btn {
-    background: #ef4444; /* rouge vif */
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  }
-  
-  #logout-btn:hover {
-    background: #b91c1c; /* rouge foncé au survol */
-  }
-  
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+.brand {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+
+.centered-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-box input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-box button {
+  padding: 10px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background: #2980b9;
+}
+
+.redirect-text {
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+
+.task-list {
+  margin-top:20px;
+  padding-left:20px;
+}
+
+.task-list li {
+  margin-bottom:10px;
+  padding:10px;
+  background:#f2f2f2;
+  border-radius:5px;
+}

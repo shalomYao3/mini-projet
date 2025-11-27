@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mes groupes</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Mes groupes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div id="navbar"></div>
-  <h1>Mes groupes</h1>
 
-  <form id="create-group-form">
-    <input type="text" id="group-name" placeholder="Nom du groupe" required>
-    <button type="submit">Créer un groupe</button>
-  </form>
+    <main class="centered-container">
+        <h2>Gestion des groupes</h2>
 
-  <form id="join-group-form">
-    <input type="number" id="group-id" placeholder="ID du groupe" required>
-    <button type="submit">Rejoindre un groupe</button>
-  </form>
+        
+        <section class="form-section">
+            <h3>Créer un groupe</h3>
 
-  <ul id="group-list"></ul>
-  <script src="script.js"></script>
+            <form id="create-group-form" class="form-box">
+                <label for="group-name">Nom du groupe</label>
+                <input type="text" id="group-name" required>
+
+                <button type="submit">Créer</button>
+            </form>
+        </section>
+
+        
+        <section class="form-section">
+            <h3>Rejoindre un groupe</h3>
+
+            <form id="join-group-form" class="form-box">
+                <label for="group-id">ID du groupe</label>
+                <input type="number" id="group-id" required>
+
+                <button type="submit">Rejoindre</button>
+            </form>
+        </section>
+
+        <h3>Liste des groupes</h3>
+        <ul id="group-list" class="group-list"></ul>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

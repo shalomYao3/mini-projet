@@ -6,9 +6,9 @@ from models.user import User
 from sqlmodel import Session, select
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
-def get_current_user(token: str = Depends(oauth2_scheme), session:Session=Depends(get_session)):
+def get_current_user(token: str = Depends(oauth2_scheme), session:Session=Depends(get_session)) -> User:
     payload = decode_token(token)
     if not payload:
         raise HTTPException(status_code=401, detail="Invalid token")

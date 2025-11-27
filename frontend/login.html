@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Connexion</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div id="navbar"></div>
-  <h1>Connexion</h1>
-  <form id="login-form">
-    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-    <input type="password" id="password" placeholder="Mot de passe" required>
-    <button type="submit">Se connecter</button>
-  </form>
-  <p>Pas encore inscrit ? <a href="register.html">Créer un compte</a></p>
-  <script src="script.js"></script>
+
+    <main class="centered-container">
+        <h2>Connexion</h2>
+
+        <form id="login-form" class="form-box">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <p class="redirect-text">
+            Pas encore inscrit ?
+            <a href="register.html">Créer un compte</a>
+        </p>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

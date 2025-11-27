@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Tableau de bord</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- NAVBAR -->
     <div id="navbar"></div>
-  <h1>Tableau de bord</h1>
-  <nav>
-    <a href="tasks.html">Mes tâches</a> |
-    <a href="groups.html">Mes groupes</a>
-  </nav>
-  <script src="script.js"></script>
+
+    <main class="container">
+
+        <h1 id="dashboard-title">Tableau de bord</h1>
+        <p class="subtitle">Bienvenue sur votre espace personnel.</p>
+
+        <section class="stats">
+            <div class="card">
+                <h3>Mes tâches</h3>
+                <p id="task-count">Chargement...</p>
+                <a href="tasks.html" class="btn">Voir les tâches</a>
+            </div>
+
+            <div class="card">
+                <h3>Mes groupes</h3>
+                <p id="group-count">Chargement...</p>
+                <a href="groups.html" class="btn">Voir les groupes</a>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <h2>Actions rapides</h2>
+            <ul>
+                <li><a href="tasks.html">Créer une nouvelle tâche</a></li>
+                <li><a href="groups.html">Créer un groupe</a></li>
+                <li><a href="groups.html">Rejoindre un groupe</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

@@ -137,7 +137,7 @@ if (createGroupForm) {
     e.preventDefault();
     const name = document.getElementById("group-name").value;
 
-    const res = await fetch(`${API_URL}/groups/create`, {
+    const res = await fetch(`${API_URL}/groups/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -161,7 +161,7 @@ if (joinGroupForm) {
     e.preventDefault();
     const group_id = document.getElementById("group-id").value;
 
-    const res = await fetch(`${API_URL}/groups/join`, {
+    const res = await fetch(`${API_URL}/groups/${group_id}/join`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

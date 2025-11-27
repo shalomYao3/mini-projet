@@ -4,7 +4,7 @@ class UserRead(BaseModel):
     id: int
     username: str
 
-    class config:
+    class Config:
         orm_mode = True
 
 class UserLogin(BaseModel):

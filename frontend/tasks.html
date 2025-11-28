@@ -5,30 +5,92 @@
     <title>Mes tâches</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- NAVBAR -->
     <div id="navbar"></div>
 
-    <main class="centered-container">
-        <h2>Mes tâches</h2>
+    <main class="container">
 
-        <!-- Formulaire de création de tâche -->
-        <form id="task-form" class="form-box">
-            <label for="title">Titre</label>
-            <input type="text" id="title" required>
+        <h1>Mes tâches</h1>
 
-            <label for="description">Description</label>
-            <textarea id="description" required></textarea>
+        <!-- FORMULAIRE DE CRÉATION -->
+        <section class="card form-card">
+            <h2>Créer une nouvelle tâche</h2>
+            <form id="task-form">
+                <input type="text" id="title" placeholder="Titre" required>
+                <textarea id="description" placeholder="Description"></textarea>
 
-            <button type="submit">Créer la tâche</button>
-        </form>
+                 <!-- Sélection du groupe -->
+                <select id="group-select">
+                    <option value="">-- Aucun groupe --</option>
+                </select>
 
-        <h3>Liste des tâches</h3>
+                <button type="submit" class="btn">Créer</button>
+            </form>
 
-        <ul id="task-list" class="task-list"></ul>
+                <label for="status">Statut</label>
+                <select id="status">
+                    <option value="todo">À faire</option>
+                    <option value="in_progress">En cours</option>
+                    <option value="done">Terminé</option>
+                </select>
+
+                <label for="deadline">Deadline</label>
+                <input type="datetime-local" id="deadline">
+
+                <label for="group-select">Groupe (optionnel)</label>
+                <select id="group-select">
+                    <option value="">— Aucun —</option>
+                </select>
+
+                <button type="submit" class="btn">Créer</button>
+            </form>
+        </section>
+
+        <!-- LISTE DES TÂCHES -->
+        <section class="task-section">
+            <h2>Liste de mes tâches</h2>
+            <ul id="task-list" class="task-list">Chargement...</ul>
+        </section>
+
+        <!-- FORMULAIRE D'ÉDITION (popup) -->
+        <div id="edit-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Modifier la tâche</h2>
+
+                <form id="edit-task-form">
+                    <input type="text" id="edit-title" placeholder="Titre" required>
+                    <textarea id="edit-description" placeholder="Description"></textarea>
+
+                    <label for="edit-status">Statut</label>
+                    <select id="edit-status">
+                        <option value="todo">À faire</option>
+                        <option value="in_progress">En cours</option>
+                        <option value="done">Terminé</option>
+                    </select>
+
+                    <label for="edit-deadline">Deadline</label>
+                    <input type="datetime-local" id="edit-deadline">
+
+                    <label for="edit-group-select">Groupe (optionnel)</label>
+                    <select id="edit-group-select">
+                        <option value="">— Aucun —</option>
+                    </select>
+
+                    <input type="hidden" id="edit-task-id">
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn">Enregistrer</button>
+                        <button type="button" id="close-modal" class="btn secondary">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
-

@@ -73,15 +73,425 @@
 }
 
 
+/*===tache+++*/
 
-.task-list {
-  margin-top:20px;
-  padding-left:20px;
+/* ==========================
+        GLOBAL
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.task-list li {
-  margin-bottom:10px;
-  padding:10px;
-  background:#f2f2f2;
-  border-radius:5px;
+body {
+  background: #f4f5f7;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+
+/* ==========================
+      NAVBAR
+========================== */
+nav {
+  background: #1d3557;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+#logout-btn {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#logout-btn:hover {
+  background: #c72c38;
+}
+
+
+/* ==========================
+      TITRES
+========================== */
+h1 {
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+
+/* ==========================
+      CARDS
+========================== */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+/* Carte formulaire */
+.form-card form input,
+.form-card form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+.form-card form button {
+  width: 100%;
+}
+
+
+/* ==========================
+      BOUTONS
+========================== */
+
+.btn {
+  background: #457b9d;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #35627a;
+}
+
+.btn.secondary {
+  background: #aaa;
+}
+.btn.secondary:hover {
+  background: #888;
+}
+
+.btn.danger {
+  background: #e63946;
+}
+.btn.danger:hover {
+  background: #c72c38;
+}
+
+
+/* ==========================
+      TÂCHES : LISTE
+========================== */
+.task-section h2 {
+  margin: 20px 0 10px;
+}
+
+.task-list {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.task-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-info h3 {
+  margin-bottom: 5px;
+}
+
+.task-actions button {
+  margin-left: 10px;
+}
+
+
+/* ==========================
+      MODAL
+========================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* ==========================
+      RESPONSIVE
+========================== */
+@media (max-width: 600px) {
+  nav {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  nav a {
+      margin: 8px 0;
+  }
+
+  .task-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .task-actions {
+      margin-top: 10px;
+  }
+}
+
+
+
+
+/* RESET SIMPLE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* NAVBAR (compatible avec ton script.js) */
+nav {
+  background: #2c3e50;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav h1 {
+  color: white;
+  font-size: 1.4rem;
+}
+
+#nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+#nav-links a:hover {
+  text-decoration: underline;
+}
+
+#logout-btn {
+  background: #e74c3c;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+#logout-btn:hover {
+  background: #c0392b;
+}
+
+/* ================================================
+ DASHBOARD
+=================================================== */
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+#dashboard-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* ====== CARDS STATS ====== */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  width: 260px;
+  padding: 25px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.card p {
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+  font-weight: bold;
+}
+
+/* ====== BUTTON ====== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+/* ====== QUICK LINKS ====== */
+
+.quick-links {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.quick-links h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.quick-links ul {
+  list-style: none;
+}
+
+.quick-links li {
+  margin-bottom: 12px;
+}
+
+.quick-links a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
+/* ================================================
+ RESPONSIVE
+=================================================== */
+
+@media (max-width: 700px) {
+  .stats {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .card {
+      width: 90%;
+  }
+
+  .container {
+      margin-top: 20px;
+  }
 }
